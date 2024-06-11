@@ -1,6 +1,13 @@
 import axios from "axios";
 
-export const getImagesApi = async () => {
-    const {data} = await axios.get("https://hn.algolia.com/api/v1/search?query=react");
-    return data; 
+axios.defaults.baseURL = "https://api.unsplash.com/"
+const KEY_API = "SPWQOYHFvR2Pvl2gJRcvBXyy6Wm-CFl80HRpfsb0okw";
+
+export const getImagesApi = async (searchQuery,page) => {
+    const {data} = await axios.get(`/search/photos/?client_id=${KEY_API}`, {params:{
+        query:searchQuery,
+        per_page:12,
+        page
+    }});
+    return data.results; 
 };
