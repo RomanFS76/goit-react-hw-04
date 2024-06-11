@@ -15,9 +15,11 @@ function App() {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal(img) {
     setSelectedImage(img);
+    
   }
 
   function closeModal() {
@@ -60,7 +62,7 @@ function App() {
       {images.length > 0 && (
         <LoadMoreBtn loadmore={handleLoadMore}></LoadMoreBtn>
       )}
-      <ImageModal alt={images.urls.alt_description} isOpen={Boolean(selectedImage)} onRequestClose={closeModal}></ImageModal>
+      <ImageModal img={setSelectedImage} isOpen={modalIsOpen} setModalIsOpen={setModalIsOpen(true)}  onRequestClose={closeModal}></ImageModal>
     </>
   );
 }

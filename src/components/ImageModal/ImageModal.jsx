@@ -3,11 +3,10 @@ import css from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, onRequestClose,urls, alt}) => {
+const ImageModal = ({ isOpen, onRequestClose,img,setModalIsOpen}) => {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className={css.modal}>
-      <button onClick={isOpen}>Open Modal</button>
-      <img src={urls} alt={alt} />
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className={css.modal}>      
+      <img src={img} onClick={()=>{setModalIsOpen}}/>
       <button onClick={onRequestClose}>Close Modal</button>
     </Modal>
   );
