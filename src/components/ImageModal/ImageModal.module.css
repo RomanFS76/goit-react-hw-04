@@ -1,10 +1,22 @@
 .modal {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+}
 
+.modalContent {
+        position: absolute;
         top: 50%;
         left: 50%;
         right: auto;
         bottom: auto;
-        margin-right: -50%;
+        border: none;
         transform: translate(-50%, -50%);
-
+        background: #fff;
+        overflow: auto;
+        border-radius: 4px;
+        outline: none;
+        padding: 20px;
 }

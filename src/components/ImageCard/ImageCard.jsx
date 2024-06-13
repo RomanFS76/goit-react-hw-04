@@ -1,9 +1,9 @@
 import css from "./ImageCard.module.css"
 
-const ImageCard = ({ urls, alt,onImageClick}) => {
+const ImageCard = ({ image,onImageClick}) => {
   return (
 
-      <img src={urls.small} alt={alt} className={css.img} onClick={() => onImageClick(urls.regular)}/>
+      <img src={image.urls.small} alt={image.urls.alt_description} className={css.img} onClick={onImageClick}/>
 
   );
 };

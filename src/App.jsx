@@ -15,14 +15,15 @@ function App() {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isModalIsOpen, setIsModalOpen] = useState(false);
 
-  function openModal(img) {
-    setSelectedImage(img);
-    
+  function openModal(image) {
+    setSelectedImage(image);
+    setIsModalOpen(true);
   }
 
   function closeModal() {
+    setIsModalOpen(false);
     setSelectedImage(null);
   }
 
@@ -57,12 +58,20 @@ function App() {
     <>
       <SearchBar submit={handleSubmit}></SearchBar>
       {error && <ErrorMassage></ErrorMassage>}
-      {images.length > 0 && <ImageGallery images={images} onImageClick={openModal}></ImageGallery>}
+      {images.length > 0 && (
+        <ImageGallery images={images} onImageClick={openModal}></ImageGallery>
+      )}
       {loading && <Loader></Loader>}
       {images.length > 0 && (
         <LoadMoreBtn loadmore={handleLoadMore}></LoadMoreBtn>
       )}
-      <ImageModal img={setSelectedImage} isOpen={modalIsOpen} setModalIsOpen={setModalIsOpen(true)}  onRequestClose={closeModal}></ImageModal>
+      {selectedImage && (
+        <ImageModal
+          image={setSelectedImage}
+          isOpen={isModalIsOpen}
+          onRequestClose={closeModal}
+        ></ImageModal>
+      )}
     </>
   );
 }
