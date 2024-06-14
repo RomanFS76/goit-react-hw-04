@@ -7,12 +7,10 @@ const ImageGallery = ({ images,onImageClick }) => {
       <ul className={css.galleryList}>
         {images.map(image => (
           <li key={image.id} className={css.galleryItem}>
-            <div className={css.wrapCard}>
               <ImageCard
                 image={image}
                 onImageClick={() => onImageClick(image)}
               ></ImageCard>
-            </div>
           </li>
         ))}
       </ul>

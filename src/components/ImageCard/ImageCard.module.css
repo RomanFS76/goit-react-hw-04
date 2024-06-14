@@ -1,5 +1,7 @@
 .img {
-    display: block;
-    height: 100%;
-    object-position: center;
+
+    width: 100%;
+    height: auto;
+
+
 }
