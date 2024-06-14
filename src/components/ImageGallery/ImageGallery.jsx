@@ -3,16 +3,20 @@ import css from "./ImageGallery.module.css";
 
 const ImageGallery = ({ images,onImageClick }) => {
   return (
-    <ul className={css.galleryList}>
-      {images.map(image => (
-        <li key={image.id} className={css.galleryItem}>
-          <ImageCard
-            image={image} 
-            onImageClick={() => onImageClick(image)}
-          ></ImageCard>
-        </li>
-      ))}
-    </ul>
+    <div className={css.wrapGallery}>
+      <ul className={css.galleryList}>
+        {images.map(image => (
+          <li key={image.id} className={css.galleryItem}>
+            <div className={css.wrapCard}>
+              <ImageCard
+                image={image}
+                onImageClick={() => onImageClick(image)}
+              ></ImageCard>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

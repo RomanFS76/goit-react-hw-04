@@ -1,3 +1,8 @@
+.wrapGallery {
+    padding: 20px;
+}
+
+
 .galleryList {
     display: flex;
     flex-wrap: wrap;
@@ -9,3 +14,4 @@
     border:  1px solid black;
 
 }
+

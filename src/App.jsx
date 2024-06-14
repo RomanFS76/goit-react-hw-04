@@ -67,7 +67,7 @@ function App() {
       )}
       {selectedImage && (
         <ImageModal
-          image={setSelectedImage}
+          image={selectedImage}
           isOpen={isModalIsOpen}
           onRequestClose={closeModal}
         ></ImageModal>
